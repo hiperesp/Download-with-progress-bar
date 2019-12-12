@@ -1,0 +1,95 @@
+@keyframes uncomputable-progressbar {
+	0% {
+		background-position: 0%;
+	}
+	100% {
+		background-position: 200%;
+	}
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Roboto';
+}
+a {
+	color: hsl(210deg, 100%, 50%);
+	text-decoration: none;
+}
+.container {
+	min-height: calc(100vh - 128px);
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 64px 32px;
+	box-shadow: 0 0 1em hsl(0deg, 0%, 90%);
+}
+.container .text {
+	padding: 1em 0;
+}
+.container .text h1 {
+	color: hsl(0deg, 0%, 20%);
+}
+.container .text h2 {
+	color: hsl(0deg, 0%, 40%);
+}
+.container .text p {
+	padding: 0.5em 0;
+	color: hsl(0deg, 0%, 60%);
+	line-height: 2em;
+}
+.progress-bar {
+	margin: 1em 0;
+	width: 100%;
+	border-radius: 0.5em;
+	background-color: hsl(0deg, 0%, 100%);
+	box-shadow: 0 0 0.1em hsl(0deg, 0%, 90%);
+	overflow: hidden;
+}
+.progress {
+	background-color: hsl(210deg, 100%, 50%);
+	color: hsl(210deg, 50%, 75%);
+	padding: 0.5em;
+	text-align: right;
+	width: 0%;
+}
+.progress-bar.not-downloading .progress {
+	width: 100%;
+	text-align: center;
+	color: hsl(0deg, 0%, 75%);
+	background-color: transparent;
+}
+.progress-bar.uncomputable .progress {
+	width: 100%;
+	background-image: linear-gradient(to right, hsl(200deg, 75%, 50%), hsl(220deg, 100%, 50%), hsl(200deg, 75%, 50%));
+	animation-name: uncomputable-progressbar;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	background-size: 200%;
+}
+.download-item {
+	margin: 1em 0;
+	padding: 2em 1em;
+	box-shadow: 0 0 0.25em hsl(0deg, 0%, 90%);
+	text-align: center;
+	border-radius: 0.5em;
+}
+.downloadButton {
+	cursor: pointer;
+	overflow: hidden;
+	padding: 0.75em 1.25em;
+	font-size: 1em;
+	font-weight: bold;
+	background-color: hsl(210deg, 70%, 50%);
+	border-style: none;
+	border-radius: 0.5em;
+	color: hsl(210deg, 75%, 95%);
+	box-shadow: 0 0 0.25em hsl(210deg, 50%, 50%);
+}
+.downloadButton:disabled {
+	cursor: not-allowed;
+	background-color: hsl(0deg, 0%, 95%);
+	box-shadow: 0 0 0.25em hsl(0deg, 0%, 90%);
+	color: hsl(0deg, 0%, 50%);
+}
